@@ -11,20 +11,22 @@ const rename = async () => {
     try{
         await access(oldFile);
     } catch {
-        throw new Error('FS operation failed');
+        throw Error('FS operation failed');
     }
 
     try{
         await access(newFile);
-        throw new Error('exist');
+        throw Error('exist');
     } catch(err) {
-        if(err.message === 'exist') throw new Error('FS operation failed');
-        try{
-            await rn(oldFile, newFile);
-            console.log('File was successfuly coppied');
-        } catch {
-            throw new Error('FS operation failed');
-        }
+        if(err.message === 'exist') throw Error('FS operation failed');
+        
+    }
+
+    try{
+        await rn(oldFile, newFile);
+        console.log('File was successfuly coppied');
+    } catch {
+        throw Error('FS operation failed');
     }
 };
 
