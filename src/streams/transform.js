@@ -14,15 +14,19 @@ const transform = async () => {
     console.log('Try now. For exit, please press Ctrl + C<<');
 
     process.on('SIGINT', () => {
-        console.log('Nice to meet you ')
+        console.log('Nice try')
         process.exit(0);
     })
-    
-    pipeline(
-        stdin,
-        reverse,
-        stdout
-    )
+
+    try{
+        await pipeline(
+            stdin,
+            reverse,
+            stdout
+        )
+    } catch {
+        throw Error('Something went wrong. Contact to developer ;)')
+    }
 };
 
 await transform();
