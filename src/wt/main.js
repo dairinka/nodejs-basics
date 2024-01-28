@@ -1,5 +1,5 @@
 import { cpus } from "node:os"
-import { Worker, MessageChannel } from 'node:worker_threads';
+import { Worker } from 'node:worker_threads';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
