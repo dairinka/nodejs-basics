@@ -24,7 +24,7 @@ const rename = async () => {
 
     try{
         await rn(oldFile, newFile);
-        console.log('File was successfuly coppied');
+        console.log('File was successfuly renamed');
     } catch {
         throw Error('FS operation failed');
     }
