@@ -9,16 +9,18 @@ const decompress = async () => {
     const __dirname = dirname(fileURLToPath(import.meta.url));
     const fileToDecompress = join(__dirname, 'files/fileToCompress.txt');
     const archive = join(__dirname, 'files/archive.gz');
+
     try {
-       await rm(fileToDecompress);
-        console.log('I have removed fileToCompress.txt first, because how do you know if this function can decompress the archive or not');
-    } catch {}
+         await access(archive);
+    } catch {
+        throw new Error('archive.gz doesn\'t exist. Please, compress file first' ) 
+    }
 
     try {
         await pipeline(createReadStream(archive), createGunzip(), createWriteStream(fileToDecompress));
         console.log('File was decompressed');
     } catch {
-        throw Error("Something went wrong. Please, contact to developer ;)")
+        throw Error("Something went wrong. ")
     }
 };
 
