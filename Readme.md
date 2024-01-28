@@ -7,6 +7,7 @@ Please download zip archive for cross-check
 ### For quick check:
  1) find section "NPM SCRIPTS" on bottom of left pannel VS code
  2) run scripts in order of task
+    
 Thank you!
 
 
