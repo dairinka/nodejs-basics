@@ -14,11 +14,9 @@ const compress = async () => {
         throw Error('exist');
     } catch(err) {
         if(err.message === 'exist') {
-            console.log('>> You know file archive.gz already exist. <<')
-            console.log('>> And I decide to tell you about it. <<')
-            console.log('>> I know it wasn\'t in a task, but I think it\'s correct <<')
-            console.log('>> And now will be error <<')
-            throw new Error('>> File archive.gz already exist. Please, delete it and try again <<');
+            console.log('>> You know file archive.gz already exist. <<');
+            console.log('>> It might be better if you delete archive.gz first. <<'); 
+            console.log('>> But I still archived it for you.<<');           
         }
     }
 
