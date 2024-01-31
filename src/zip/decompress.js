@@ -3,7 +3,7 @@ import { join, dirname } from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 import { createGunzip } from 'node:zlib';
-import { rm } from 'node:fs/promises';
+import { access } from 'node:fs/promises';
 
 const decompress = async () => {
     const __dirname = dirname(fileURLToPath(import.meta.url));
